@@ -1,0 +1,16 @@
+Sumar los 10 primeros números naturales y almacenar en el acumulador.
+
+LDA #$0; Ponemos el acumulador a cero
+STA $FF; Guardamos A en memoria
+LDX #1; Ponemos X a uno
+STX $FE; Guardamos X en memoria
+LDA $FF; Recuperamos A de la memoria
+ADD $FE; Sumamos X a A
+STA $FF; Guardamos A en memoria
+LDX $FE; Recuperamos X de la memoria
+INX; Incrementamos X en uno
+LDA #10; Ponemos el acumulador a 10
+SUB $FE; Restamos X de A
+JNZ $06; Si no hay 0 saltamos a la instrucción 4
+LDA $FF; Recuperamos A de la memoria
+HLT; Acabamos el programa
